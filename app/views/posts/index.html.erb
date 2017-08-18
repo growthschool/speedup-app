@@ -6,6 +6,7 @@
 <tr>
   <td><%= link_to post.title, post_path(post) %></td>
   <td><%= post.user.display_name %></td>
+  <td><%= post.comments.count %></td>
 </tr>
 <% end %>
 </<table>

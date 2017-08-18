@@ -1,1 +1,14 @@
 <h1><%= @post.title %></h1>
+
+<%= simple_format @post.content %>
+
+<h2>Comments</h2>
+
+<table class="table">
+  <% @post.comments.each do |comment| %>
+    <tr>
+      <td><%= comment.content %></td>
+      <td><%= comment.user.display_name %></td>
+    </tr>
+  <% end %>
+</table>
