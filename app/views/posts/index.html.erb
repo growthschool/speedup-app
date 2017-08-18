@@ -1,1 +1,11 @@
-<h2>root</h2>
+<h2>Posts</h2>
+
+
+<table class="table">
+<% @posts.each do |post| %>
+<tr>
+  <td><%= link_to post.title, post_path(post) %></td>
+  <td><%= post.user.display_name %></td>
+</tr>
+<% end %>
+</<table>
