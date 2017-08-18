@@ -4,7 +4,9 @@ task :fake => :environment do
   Comment.delete_all
 
   users = []
-  100.times do
+  users << User.create!( :email => "admin@example.org", :password => "12345678")
+
+  20.times do
     users << User.create!( :email => Faker::Internet.email, :password => "12345678")
   end
 
@@ -13,8 +15,13 @@ task :fake => :environment do
                          :content => Faker::Lorem.paragraph,
                          :user_id => users.sample.id )
 
-    50.times do |j|
-      post.comments.create!( :content => Faker::Lorem.paragraph,
+    5.times do
+      Like.create!( :user => users.sample, :post => post )
+    end
+
+    10.times do |j|
+      post.comments.create!( :status => ["public", "private"].sample,
+                             :content => Faker::Lorem.paragraph,
                              :user_id => users.sample.id )
     end
   end

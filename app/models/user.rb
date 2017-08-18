@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
 
+  has_many :likes
+  has_many :like_posts, :through => :likes, :source => :post
+
   def display_name
     self.email.split("@").first
   end
