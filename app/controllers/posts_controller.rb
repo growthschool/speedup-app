@@ -6,7 +6,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.includes(:user)
+    @comments = @post.comments.visible.includes(:user)
+
+    if current_user
+      @my_comments = @post.comments.where( :status => "private", :user_id => current_user.id ).includes(:user)
+    end
   end
 
   def report
