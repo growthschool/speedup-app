@@ -19,6 +19,10 @@ task :fake => :environment do
       Like.create!( :user => users.sample, :post => post )
     end
 
+    rand(99).times do
+      Subscription.create!( :user => users.sample, :post => post )
+    end
+
     10.times do |j|
       post.comments.create!( :status => ["public", "private"].sample,
                              :content => Faker::Lorem.paragraph,

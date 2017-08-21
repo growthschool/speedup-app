@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
 
+  has_many :subscriptions
+  has_many :subscribe_posts, :through => :subscriptions, :source => :post
+
   has_many :likes
   has_many :like_posts, :through => :likes, :source => :post
 
