@@ -1,11 +1,16 @@
 <h2>Posts</h2>
 
 <table class="table">
-<% @posts.each do |post| %>
   <tr>
-    <td><%= link_to post.title, post_path(post) %></td>
-    <td><%= post.user.display_name %></td>
-    <td><%= post.comments.map{ |c| c.user.display_name }.join(",") %></td>
+    <th>標題</th>
+    <th>作者</th>
   </tr>
-<% end %>
-</<table>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= link_to post.title, post_path(post) %></td>
+      <td><%= post.user.display_name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= paginate @posts %>
