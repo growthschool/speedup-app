@@ -14,6 +14,7 @@ gem 'sqlite3'
 gem 'puma', '~> 3.7'
 
 gem 'kaminari'
+gem 'rack-mini-profiler'
 
 gem 'jquery-rails'
 gem 'bootstrap-sass'
