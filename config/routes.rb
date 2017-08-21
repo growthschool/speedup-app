@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   root "posts#index"
 
-  resources :posts
+  resources :posts do
+    collection do
+      get :report
+    end
+  end
 
 end

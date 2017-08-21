@@ -9,4 +9,8 @@ class PostsController < ApplicationController
     @comments = @post.comments
   end
 
+  def report
+    @posts = Post.all.sort_by{ |post| post.subscriptions.size }.reverse[0,10]
+  end
+
 end
