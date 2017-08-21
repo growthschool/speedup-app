@@ -1,10 +1,13 @@
 <h2>Posts</h2>
 
+<%= @subscriptions_count %>
+
 <table class="table">
   <tr>
     <th>標題</th>
     <th>作者</th>
     <th>留言數</th>
+    <th>訂閱數</th>
     <th>留言用戶</th>
     <th>按讚用戶</th>
   </tr>
@@ -18,6 +21,7 @@
       </td>
       <td><%= post.user.display_name %></td>
       <td><%= post.visible_comments.size %></td>
+      <td><%= @subscriptions_count[post.id] %></td>
       <td><%= post.visible_comments.map{ |c| c.user.display_name }.join(",") %></td>
       <td><%= post.liked_users.map{ |u| u.display_name }.join(",") %></td>
     </tr>
