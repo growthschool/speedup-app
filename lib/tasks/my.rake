@@ -6,11 +6,14 @@ task :fake => :environment do
   users = []
   users << User.create!( :email => "admin@example.org", :password => "12345678")
 
+  puts "Generate 20 fake users..."
   20.times do
     users << User.create!( :email => Faker::Internet.email, :password => "12345678")
   end
 
   50.times do |i|
+    puts "Generate fake post #{i}"
+
     post = Post.create!( :title => Faker::Lorem.sentence,
                          :content => Faker::Lorem.paragraph,
                          :user_id => users.sample.id )
