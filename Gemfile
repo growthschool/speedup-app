@@ -21,6 +21,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 
 gem 'faker'
+gem 'rack-mini-profiler'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -52,6 +53,8 @@ group :development, :test do
 
   gem 'rspec-rails'
 end
+
+gem 'bullet', group: 'development'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
