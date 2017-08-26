@@ -26,7 +26,7 @@ task :fake => :environment do
       Subscription.create!( :user => users.sample, :post => post )
     end
 
-    10.times do |j|
+    30.times do |j|
       post.comments.create!( :status => ["public", "private"].sample,
                              :content => Faker::Lorem.paragraph,
                              :user_id => users.sample.id )

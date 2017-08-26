@@ -17,4 +17,8 @@ class User < ApplicationRecord
     self.email.split("@").first
   end
 
+  def like_post?(post)
+    post.liked_users.include?(self)
+  end
+
 end
