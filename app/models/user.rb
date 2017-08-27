@@ -17,4 +17,9 @@ class User < ApplicationRecord
     self.email.split("@").first
   end
 
+  def like_post?(post)
+    # post.liked_users 实际上在 controler 中已经被取出放进内存了，这里用数组的 include? 方法去检查里面有没有我自己
+    post.liked_users.include?(self)
+  end
+
 end
