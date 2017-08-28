@@ -40,6 +40,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
+    after_commit_action (1.1.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     arel (8.0.0)
     autoprefixer-rails (7.1.2.4)
       execjs
@@ -74,6 +77,10 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     concurrent-ruby (1.0.5-java)
+    counter_culture (1.7.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      after_commit_action (~> 1.0)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -266,6 +273,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  counter_culture (~> 1.0)
   devise
   faker
   jbuilder (~> 2.5)
