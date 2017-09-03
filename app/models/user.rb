@@ -17,4 +17,11 @@ class User < ApplicationRecord
     self.email.split("@").first
   end
 
+  def like_post?(post)
+    # 或是写 self.like.where( :post_id => post.id ).first.present? 也可以
+    # self.likes.where( :post_id => post.id ).exists?
+    # post.liked_users 实际上在 controller 中已经被取出放进内存了，这里用数组的 include? 方法去检查里面有没有我自己
+    post.liked_users.include?(self)
+  end
+
 end
