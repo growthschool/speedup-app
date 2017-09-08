@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def report
-    @posts = Post.all.sort_by{ |post| post.subscriptions.size }.reverse[0,10]
+    @posts = Post.includes(:user).joins(:subscriptions).group("posts.id").select("posts.*, COUNT(subscriptions.id) as subscriptions_count").order("subscriptions_count DESC").limit(10)
   end
 
 end
