@@ -13,3 +13,18 @@
   <% end %>
 </table>
 
+<% if current_user %>
+  <h2>My Comments</h2>
+
+  <table class="table">
+    <% @my_comments.each do |comment| %>
+      <tr>
+        <td><%= comment.content %></td>
+        <td><%= comment.user.display_name %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+Total: <%= @comments.size %>
+Total: <%= @comments.count %>
