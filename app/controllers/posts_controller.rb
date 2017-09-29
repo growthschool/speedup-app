@@ -1,12 +1,16 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.page(params[:page])
+    # @posts = Post.page(params[:page])
+    # @posts = Post.includes(:user).page(params[:page])
+    # @posts = Post.includes(:user, :liked_users, { :comments => :user } ).page(params[:page])
+    @posts = Post.includes(:user, :liked_users, { :visible_comments => :user } ).page(params[:page])
   end
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments
+    # @comments = @post.comments
+    @comments = @post.comments.includes(:user)
   end
 
   def report
