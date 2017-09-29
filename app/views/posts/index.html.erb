@@ -22,7 +22,7 @@
       <!-- <td><%= post.comments.map{ |c| c.user.display_name }.join(",") %></td> -->
       <!-- <td><%= post.comments.visible.map{ |c| c.user.display_name }.join(",") %></td> -->
       <td><%= post.visible_comments.size %></td>
-      <td><%= @subscriptions_count[post.id] %></td>
+      <td><%= post.subscriptions_count %></td>
       <td><%= post.visible_comments.map{ |c| c.user.display_name }.join(",") %></td>
       <td><%= post.liked_users.map{ |u| u.display_name }.join(",") %></td>
     </tr>

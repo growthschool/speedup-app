@@ -6,8 +6,8 @@ class PostsController < ApplicationController
     # @posts = Post.includes(:user, :liked_users, { :comments => :user } ).page(params[:page])
     # @posts = Post.includes(:user, :liked_users, { :visible_comments => :user } ).page(params[:page])
     @posts = Post.includes(:user, :comments, {:comments => :user}, :liked_users, { :visible_comments => :user } ).page(params[:page])
-    post_ids = @posts.map{ |p| p.id }
-    @subscriptions_count = Post.where( :id => post_ids).joins(:subscriptions).group("posts.id").count
+    # post_ids = @posts.map{ |p| p.id }
+    # @subscriptions_count = Post.where( :id => post_ids).joins(:subscriptions).group("posts.id").count
   end
 
   def show
