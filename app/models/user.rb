@@ -16,5 +16,8 @@ class User < ApplicationRecord
   def display_name
     self.email.split("@").first
   end
-
+  def like_post?(post)
+    # 或是写 self.likes.where( :post_id => post.id ).first.present? 也可以
+    post.liked_users.include?(self)
+  end
 end
