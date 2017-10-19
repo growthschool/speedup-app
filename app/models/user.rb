@@ -17,4 +17,9 @@ class User < ApplicationRecord
     self.email.split("@").first
   end
 
+  def like_post?(post)
+    #self.likes.where( :post_id => post.id ).exists? # self.likes.where( :post_id => post.id ).first.present?
+    post.liked_users.include?(self)
+  end
+
 end
