@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821133300) do
+ActiveRecord::Schema.define(version: 20200728121504) do
 
   create_table "comments", force: :cascade do |t|
     t.string "status", default: "public"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170821133300) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date"
+    t.integer "subscriptions_count", default: 0
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
