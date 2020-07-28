@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821133300) do
+ActiveRecord::Schema.define(version: 20200728030448) do
 
   create_table "comments", force: :cascade do |t|
     t.string "status", default: "public"
